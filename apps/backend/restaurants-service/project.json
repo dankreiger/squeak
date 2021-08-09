@@ -1,0 +1,83 @@
+{
+  "root": "apps/backend/restaurants-service",
+  "sourceRoot": "apps/backend/restaurants-service/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/backend/restaurants-service",
+        "main": "apps/backend/restaurants-service/src/main.ts",
+        "tsConfig": "apps/backend/restaurants-service/tsconfig.app.json",
+        "assets": [
+          "apps/backend/restaurants-service/src/assets"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/backend/restaurants-service/src/environments/environment.ts",
+              "with": "apps/backend/restaurants-service/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "db-up": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "docker-compose --env-file ./env/.development.env up -d",
+        "cwd": "apps/backend/restaurants-service"
+      }
+    },
+    "db-down": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "docker-compose --env-file ./env/.development.env down",
+        "cwd": "apps/backend/restaurants-service"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx run backend-restaurants-service:serve-only",
+          "nx run backend-restaurants-service-admin:serve",
+          "nx run frontend-web:serve"
+        ]
+      }
+    },
+    "serve-only": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "backend-restaurants-service:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/backend/restaurants-service/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/backend/restaurants-service"
+      ],
+      "options": {
+        "jestConfig": "apps/backend/restaurants-service/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

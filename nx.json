@@ -31,5 +31,15 @@
       }
     ]
   },
-  "projects": {}
+  "projects": {
+    "frontend-mobile": {
+      "tags": []
+    },
+    "frontend/mobile-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "frontend-mobile"
+      ]
+    }
+  }
 }

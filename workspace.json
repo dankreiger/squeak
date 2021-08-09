@@ -1,7 +1,17 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "backend-restaurants-service": "apps/backend/restaurants-service",
+    "backend-restaurants-service-admin": "apps/backend/restaurants-service-admin",
+    "backend-restaurants-service-enums": "libs/backend/restaurants-service/enums",
+    "backend-restaurants-service-interfaces": "libs/backend/restaurants-service/interfaces",
+    "backend-restaurants-service-types": "libs/backend/restaurants-service/types",
+    "backend-restaurants-service-utils": "libs/backend/restaurants-service/utils",
+    "frontend-mobile": "apps/frontend/mobile",
+    "frontend/mobile-e2e": "apps/frontend/mobile-e2e"
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "backend-restaurants-service"
 }

@@ -1,94 +1,279 @@
+# Squeak 🐶
 
+Table of contents:
 
-# Squeak
+- [Squeak 🐶](#squeak-)
+  - [Prerequisites](#prerequisites)
+    - [Note](#note)
+  - [Getting started](#getting-started)
+    - [Install dependencies](#install-dependencies)
+    - [Starting the full-stack app](#starting-the-full-stack-app)
+    - [Start only the default frontend web-app](#start-only-the-default-frontend-web-app)
+    - [Start only the default frontend mobile app](#start-only-the-default-frontend-mobile-app)
+    - [Start frontend UI library app (default ui library)](#start-frontend-ui-library-app-default-ui-library)
+    - [Make a build](#make-a-build)
+      - [Note on builds](#note-on-builds)
+  - [Running unit tests](#running-unit-tests)
+  - [Running end-to-end tests](#running-end-to-end-tests)
+  - [View repo dependency graph](#view-repo-dependency-graph)
+    - [Learnings](#learnings)
+      - [Toolchain](#toolchain)
+      - [i18n](#i18n)
+      - [NX](#nx)
 
-This project was generated using [Nx](https://nx.dev).
+## Prerequisites
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+```sh
+node >=14.17.4
+yarn >=1.22.11
+```
 
-🔎 **Smart, Extensible Build Framework**
+- [node](https://nodejs.org/)
+- [yarn](https://yarnpkg.com/getting-started/install)
+- [docker](https://docs.docker.com/get-started/#download-and-install-docker)
+- [docker-compose](https://docs.docker.com/docker-for-mac/install/)
 
-## Adding capabilities to your workspace
+### Note
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+- The versions aren't enforced via `package.json` engines, but still please try to use the minimum versions
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+- You can do easy node version management via [nvm](https://github.com/nvm-sh/nvm).
 
-Below are our core plugins:
+  ```sh
+  # install nvm
+  $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+  # open a new shell window, and install node 14.17.4
+  $ nvm install 14.17.4
+  $ npm install -g yarn@1.22.1
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+  # use this command to set yourself to the node version specified in `.nvmrc`
+  $ nvm use
+  ```
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+## Getting started
 
-## Generate an application
+### Install dependencies
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+```sh
+yarn
+```
 
-> You can use any of the plugins above to generate applications as well.
+### Starting the full-stack app
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+1. Create local database
 
-## Generate a library
+   - Make sure `docker` is running.
+   - Once docker is running, create the `postgres` db in this project by running `docker-compose`.
+   - You can create can be done by running this command:
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+     ```sh
+     yarn db-up
+     ```
 
-> You can also use any of the plugins above to generate libraries as well.
+2. Start the app
 
-Libraries are shareable across libraries and applications. They can be imported from `@squeak/mylib`.
+   ```sh
+   yarn start
+   ```
 
-## Development server
+   - This will start the [frontend-web](http://localhost:4200), [frontend-mobile](http://localhost:8081), [backend](http://localhost:3333/api), and [admin](http://localhost:3334) app in parallel.
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+     - Frontend: <http://localhost:4200>
+     - Mobile <http://localhost:8081> (note you )
+     - Backend: <http://localhost:3333/api>
+     - Admin: <http://localhost:3334>
 
-## Code scaffolding
+   - Note for the mobile app you will need to start an ios or android emulator in addition to the metro server.
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+   ```sh
+   # start android emulator
+   yarn frontend:start:mobile:android
+   ```
 
-## Build
+   ```sh
+   # start ios emulator
+   yarn frontend:start:mobile:ios
+   ```
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+3. Creating/updating/deleting data
+
+   - either open the [admin](http://localhost:3334) app,
+   - or run the following curl command in your shell to seed a sample restaurant entry:
+
+```sh
+curl --location --request POST 'http://localhost:3333/api/restaurants' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Pizza Store",
+  "city": "Berlin",
+  "country": "Germamy",
+  "openingHours": {
+      "monday": [],
+      "tuesday": [
+          {
+              "type": "open",
+              "value": 36000
+          },
+          {
+              "type": "close",
+              "value": 64800
+          }
+      ],
+      "wednesday": [],
+      "thursday": [
+          {
+              "type": "open",
+              "value": 36000
+          },
+          {
+              "type": "close",
+              "value": 64800
+          }
+      ],
+      "friday": [
+          {
+              "type": "open",
+              "value": 36000
+          }
+      ],
+      "saturday": [
+          {
+              "type": "close",
+              "value": 3600
+          },
+          {
+              "type": "open",
+              "value": 36000
+          }
+      ],
+      "sunday": [
+          {
+              "type": "close",
+              "value": 3600
+          },
+          {
+              "type": "open",
+              "value": 43333
+          },
+          {
+              "type": "close",
+              "value": 75600
+          }
+      ]
+  }
+}'
+```
+
+### Start only the default frontend web-app
+
+```sh
+# start dev server in frontend
+yarn web
+```
+
+- Navigate to <http://localhost:4200>.
+- The app will automatically reload if you change any of the source files.
+
+### Start only the default frontend mobile app
+
+```sh
+# start dev server
+yarn mobile
+# once server is running, start either an Android or iOS emulator in another terminal
+
+# android
+yarn android
+
+# ios
+yarn ios
+```
+
+- App should appear in the iOS or Android emulator
+
+- Note:
+
+- If the iOS build fails, try running it again.
+- If that does not work, try `yarn nx run-ios frontend-mobile` first if the build fails.
+
+### Start frontend UI library app (default ui library)
+
+```sh
+# start dev server in Storybook
+yarn web-ui
+```
+
+- Navigate to http://localhost:4400/. You will be in the [Storybook](https://storybook.js.org/) UI.
+- Storybook will automatically reload if you change any of the source files.
+
+Note: converting this into installable packages is easy to do in `nx`.
+
+### Make a build
+
+- Run `yarn build` for a development build
+- Run `yarn build --prod` for a production build
+
+#### Note on builds
+
+- converting this build into installable packages is easy to do in `nx`: see [source](https://nx.dev/latest/angular/structure/buildable-and-publishable-libraries)
+- the build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+- unit tests use [Jest](https://jestjs.io)
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+```sh
+# executes all unit tests.
+yarn test
+```
+
+```sh
+# execute the unit tests affected by a change (good for development and CI)
+yarn affected:test
+```
 
 ## Running end-to-end tests
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+- e2e tests use [Cypress](https://www.cypress.io)
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+```sh
+# executes all e2e tests.
+yarn e2e
+```
 
-## Understand your workspace
+```sh
+# execute the e2e tests affected by a change (good for development and CI)
+yarn affected:e2e
+```
 
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+## View repo dependency graph
 
-## Further help
+```sh
+yarn dep-graph
+```
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+---
 
+### Learnings
 
+#### Toolchain
 
-## ☁ Nx Cloud
+- I used [nx](https://nx.dev) to demonstrate how I might scale an app from scratch. It also allowed me to nicely package the frontend/backend apps and associated libraries into a monorepo.
 
-### Distributed Computation Caching & Distributed Task Execution
+- For enterprise monorepos, I am growing to really appreciate the solution `nx` provides. I also like how the toolchain encourages good practices with file structure. I also like how it allows you to inspect how you are consuming your various libraries via `nx dep-graph`.
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+#### i18n
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+- I used `react-18next`, which I found more flexible and quicker to use than `react-intl`. However, this is a client-side rendered app, and I'd have to explore deeper to see if `react-18next` would be viable for a server-side rendered or static-site generated app.
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+- `react-18next` also works nicely with the React `Suspense` api, which allowed me to lazy load routes.
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- I wanted to use `nextjs` and create a site with static generation, but unfortunately `next` does not support `i18n` routing with static generation: see [source](https://nextjs.org/docs/advanced-features/i18n-routing#how-does-this-work-with-static-generation)
+
+- Theme-UI is also buggy with storybook when using the `sx` prop.
+- Theme-UI typescript support does not allow enforcing theme shapes between themes. Or at least it is much more difficult to do than with `styled-components`
+
+#### NX
+
+- this is a great tool, but it would be even better to plan a lot beforehand, since it really is opinionated about file structure
+
+- It makes you name everything with a very Angular way approach

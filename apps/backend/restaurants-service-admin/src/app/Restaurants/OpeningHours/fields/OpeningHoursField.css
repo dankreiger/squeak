@@ -1,0 +1,18 @@
+.opening-hours-display {
+  display: flex;
+  min-height: 50px;
+  min-width: 200px;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: capitalize;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.opening-hours-display:last-of-type {
+  border-bottom: none;
+}
+
+.opening-hours-display-times{
+  text-align: right;
+  width: 150px;
+}

@@ -1,0 +1,87 @@
+{
+  "root": "apps/backend/restaurants-service-admin",
+  "sourceRoot": "apps/backend/restaurants-service-admin/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/backend/restaurants-service-admin",
+        "index": "apps/backend/restaurants-service-admin/src/index.html",
+        "main": "apps/backend/restaurants-service-admin/src/main.tsx",
+        "polyfills": "apps/backend/restaurants-service-admin/src/polyfills.ts",
+        "tsConfig": "apps/backend/restaurants-service-admin/tsconfig.app.json",
+        "assets": [
+          "apps/backend/restaurants-service-admin/src/favicon.ico",
+          "apps/backend/restaurants-service-admin/src/assets"
+        ],
+        "styles": [
+          "apps/backend/restaurants-service-admin/src/styles.css"
+        ],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/backend/restaurants-service-admin/src/environments/environment.ts",
+              "with": "apps/backend/restaurants-service-admin/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "backend-restaurants-service-admin:build",
+        "hmr": true,
+        "port": 3334,
+        "proxyConfig": "apps/backend/restaurants-service-admin/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "backend-restaurants-service-admin:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/backend/restaurants-service-admin/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/backend/restaurants-service-admin"
+      ],
+      "options": {
+        "jestConfig": "apps/backend/restaurants-service-admin/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

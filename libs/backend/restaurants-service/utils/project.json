@@ -1,0 +1,22 @@
+{
+  "root": "libs/backend/restaurants-service/utils",
+  "sourceRoot": "libs/backend/restaurants-service/utils/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/backend/restaurants-service/utils/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/backend/restaurants-service/utils"],
+      "options": {
+        "jestConfig": "libs/backend/restaurants-service/utils/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
