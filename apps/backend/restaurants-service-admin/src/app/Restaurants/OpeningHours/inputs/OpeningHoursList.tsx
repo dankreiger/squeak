@@ -1,5 +1,5 @@
 import type { TOpeningHoursSource } from '@squeak-backend/restaurants-service-admin.types';
-import { EDayOfWeek } from '@squeak-backend/restaurants-service.enums';
+import { EDayOfWeek } from '@squeak-shared.enums';
 import {
   ArrayInput,
   FormDataConsumer,

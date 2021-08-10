@@ -15,20 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@squeak-backend/restaurants-service-admin.interfaces": [
-        "libs/backend/restaurants-service-admin/interfaces/src/index.ts"
-      ],
       "@squeak-backend/restaurants-service-admin.types": [
         "libs/backend/restaurants-service-admin/types/src/index.ts"
       ],
       "@squeak-backend/restaurants-service.enums": [
         "libs/backend/restaurants-service/enums/src/index.ts"
       ],
+      "@squeak-backend/restaurants-service.fixtures": [
+        "libs/backend/restaurants-service/fixtures/src/index.ts"
+      ],
       "@squeak-backend/restaurants-service.interfaces": [
         "libs/backend/restaurants-service/interfaces/src/index.ts"
-      ],
-      "@squeak-backend/restaurants-service.types": [
-        "libs/backend/restaurants-service/types/src/index.ts"
       ],
       "@squeak-backend/restaurants-service.utils": [
         "libs/backend/restaurants-service/utils/src/index.ts"
@@ -36,12 +33,29 @@
       "@squeak-frontend/mobile.i18n": [
         "libs/frontend/mobile/i18n/src/index.ts"
       ],
+      "@squeak-frontend/shared.hooks": [
+        "libs/frontend/shared/hooks/src/index.ts"
+      ],
       "@squeak-frontend/shared.i18n": [
         "libs/frontend/shared/i18n/src/index.ts"
       ],
+      "@squeak-frontend/shared.test-utils": [
+        "libs/frontend/shared/test-utils/src/index.ts"
+      ],
+      "@squeak-frontend/shared.types": [
+        "libs/frontend/shared/types/src/index.ts"
+      ],
       "@squeak-frontend/shared.ui": ["libs/frontend/shared/ui/src/index.ts"],
+      "@squeak-frontend/shared.utils": [
+        "libs/frontend/shared/utils/src/index.ts"
+      ],
       "@squeak-frontend/web.i18n": ["libs/frontend/web/i18n/src/index.ts"],
-      "@squeak-frontend/web.ui": ["libs/frontend/web/ui/src/index.ts"]
+      "@squeak-frontend/web.ui": ["libs/frontend/web/ui/src/index.ts"],
+      "@squeak-shared.constants": ["libs/shared/constants/src/index.ts"],
+      "@squeak-shared.enums": ["libs/shared/enums/src/index.ts"],
+      "@squeak-shared.fixtures": ["libs/shared/fixtures/src/index.ts"],
+      "@squeak-shared.types": ["libs/shared/types/src/index.ts"],
+      "@squeak-shared.utils": ["libs/shared/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

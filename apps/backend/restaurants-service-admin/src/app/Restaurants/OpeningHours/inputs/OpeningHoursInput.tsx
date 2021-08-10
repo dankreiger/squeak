@@ -27,7 +27,6 @@ export const OpeningHoursInput = ({
     () => timeFns.secondsSinceMidnightToDate(value as number),
     [value]
   );
-  console.log(useInput({ source: '' }));
   return (
     <div>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>

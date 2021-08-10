@@ -1,4 +1,4 @@
-export * from './typographyStyles';
+export * from './fonts';
 export * from './fontSizes';
 export * from './fontWeight';
-export * from './fallbackFonts';
+export * from './typographyStyles';

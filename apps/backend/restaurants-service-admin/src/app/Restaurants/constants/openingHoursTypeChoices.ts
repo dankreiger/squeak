@@ -1,12 +1,12 @@
-import { EOpeningHoursDataType } from '@squeak-backend/restaurants-service.enums';
+import { EOpeningHoursTimeType } from '@squeak-shared.enums';
 
 export const openingHoursTypeChoices = [
   {
-    id: EOpeningHoursDataType.OPEN,
+    id: EOpeningHoursTimeType.OPEN,
     name: 'Open',
   },
   {
-    id: EOpeningHoursDataType.CLOSE,
+    id: EOpeningHoursTimeType.CLOSE,
     name: 'Close',
   },
 ];

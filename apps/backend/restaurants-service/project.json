@@ -5,16 +5,12 @@
   "targets": {
     "build": {
       "executor": "@nrwl/node:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/backend/restaurants-service",
         "main": "apps/backend/restaurants-service/src/main.ts",
         "tsConfig": "apps/backend/restaurants-service/tsconfig.app.json",
-        "assets": [
-          "apps/backend/restaurants-service/src/assets"
-        ]
+        "assets": ["apps/backend/restaurants-service/src/assets"]
       },
       "configurations": {
         "production": {
@@ -44,6 +40,18 @@
         "cwd": "apps/backend/restaurants-service"
       }
     },
+    "db-seed": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "URL=http://localhost:3333/api/restaurants/seed curl --location --request POST $URL --header 'Content-Type: application/json'"
+      }
+    },
+    "db-nuke": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "curl -X POST 'http://localhost:3333/api/restaurants/nuke' --header 'Content-Type: application/json'"
+      }
+    },
     "serve": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
@@ -63,16 +71,12 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/backend/restaurants-service/**/*.ts"
-        ]
+        "lintFilePatterns": ["apps/backend/restaurants-service/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/backend/restaurants-service"
-      ],
+      "outputs": ["coverage/apps/backend/restaurants-service"],
       "options": {
         "jestConfig": "apps/backend/restaurants-service/jest.config.js",
         "passWithNoTests": true

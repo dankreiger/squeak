@@ -1,0 +1,22 @@
+{
+  "root": "libs/shared/fixtures",
+  "sourceRoot": "libs/shared/fixtures/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/fixtures/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/fixtures"],
+      "options": {
+        "jestConfig": "libs/shared/fixtures/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

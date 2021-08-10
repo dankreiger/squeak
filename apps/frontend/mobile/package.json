@@ -18,6 +18,7 @@
     "react-native-safe-area-context": "*",
     "i18next-react-native-language-detector": "*",
     "@testing-library/react": "*",
-    "i18next-browser-languagedetector": "*"
+    "i18next-browser-languagedetector": "*",
+    "@storybook/react": "*"
   }
 }

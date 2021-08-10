@@ -10,7 +10,6 @@ import { OpeningHoursEditNotice } from './OpeningHours/helper/OpeningHoursEditNo
 import { OpeningHoursList } from './OpeningHours/inputs/OpeningHoursList';
 
 const transform = (p: any) => {
-  console.log({ p });
   return p;
 };
 export const RestaurantEdit = (props: ResourceComponentPropsWithId) => (

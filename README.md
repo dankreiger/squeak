@@ -1,8 +1,98 @@
 # Squeak 🐶
 
+## Notes
+
+There are a lot of things that I would like to finish and change.
+
+I apologize in advance, but there are many tests missing. However, you will see they are setup, and the most critical functionality is unit tested (opening times utilities).
+
+Key necessary improvements
+
+- Building up the test coverage. I spent most of my time on the app structure, but I did not take a TDD approach to the UI or RestAPI. I learned naming files in a monorepo is very hard.
+- Building out the Cypress E2E tests
+- Bringing up the unit/integration coverage for utilities and components
+- Setting up a CI pipeline with standard test/build/deploy jobs, but also web-vitals and app bundle performance tests
+- Building out the React Native App. Sadly I did not start it yet, but you can see there is a basic scaffold
+- Integrating Jest tests into the Storybook playground for the frontend component library
+- Intl on the backend
+- Organize Intl much better in general and research type safety in i18n
+- Naming files in a monorepo is a big challenge. In the future I must enforce one pattern at the beginning, but right now I have a mix of patterns between apps, and this is not what I want (I need help being more organized)
+
+---
+
+## Quick Start
+
+If you have any issues, please quickly check the [Prerequisites](#prerequisites).
+
+## Install deps
+
+```bash
+  yarn install
+```
+
+## Start CLI
+
+```bash
+  yarn start
+```
+
+- A menu will open. Please either choose Web-App (frontend) or Fullstack (web/backend/admin)
+
+- For the fullstack app, you should have docker installed.
+
+- The benefit of using the fullstack app is that you may also use the admin panel to adjust data as you need.
+
+- Note that the admin panel does not have validations implemented, so please try to fill out all the days as you might expect them to be.
+
+Please see below for more details.
+
+## Start Libraries
+
+```bash
+  # note the only available option right now
+  # is the frontend shared component library
+  yarn start:libs
+```
+
+## Running unit tests
+
+- unit tests use [Jest](https://jestjs.io)
+
+```sh
+# executes all unit tests without the nx cache optimization
+yarn runners:test:unit
+```
+
+```sh
+# executes all unit tests with the nx cache optimization
+yarn test
+```
+
+## Running e2e tests
+
+I did not get to this. You will see Cypress is setup though.
+
+## View repo dependency graph
+
+```sh
+yarn dep-graph
+```
+
+---
+
+For a more complete idea of what this repo has to offer, please continue reading below.
+
 Table of contents:
 
 - [Squeak 🐶](#squeak-)
+  - [Notes](#notes)
+  - [Quick Start](#quick-start)
+  - [Install deps](#install-deps)
+  - [Start CLI](#start-cli)
+  - [Start Libraries](#start-libraries)
+  - [Running unit tests](#running-unit-tests)
+  - [Running e2e tests](#running-e2e-tests)
+  - [View repo dependency graph](#view-repo-dependency-graph)
   - [Prerequisites](#prerequisites)
     - [Note](#note)
   - [Getting started](#getting-started)
@@ -13,9 +103,9 @@ Table of contents:
     - [Start frontend UI library app (default ui library)](#start-frontend-ui-library-app-default-ui-library)
     - [Make a build](#make-a-build)
       - [Note on builds](#note-on-builds)
-  - [Running unit tests](#running-unit-tests)
+  - [Running unit tests](#running-unit-tests-1)
   - [Running end-to-end tests](#running-end-to-end-tests)
-  - [View repo dependency graph](#view-repo-dependency-graph)
+  - [View repo dependency graph](#view-repo-dependency-graph-1)
     - [Learnings](#learnings)
       - [Toolchain](#toolchain)
       - [i18n](#i18n)
@@ -30,8 +120,8 @@ yarn >=1.22.11
 
 - [node](https://nodejs.org/)
 - [yarn](https://yarnpkg.com/getting-started/install)
-- [docker](https://docs.docker.com/get-started/#download-and-install-docker)
-- [docker-compose](https://docs.docker.com/docker-for-mac/install/)
+- [docker](https://docs.docker.com/get-started/#download-and-install-docker) (full-stack version only)
+- [docker-compose](https://docs.docker.com/docker-for-mac/install/) (full-stack version only)
 
 ### Note
 
@@ -66,11 +156,20 @@ yarn
    - Once docker is running, create the `postgres` db in this project by running `docker-compose`.
    - You can create can be done by running this command:
 
-     ```sh
-     yarn db-up
-     ```
+   ```sh
+   # once docker is running
+   yarn db-up
+   ```
 
-2. Start the app
+2. Seed db (first-time only)
+
+   - this will give the application a variety of dummy fixtures
+
+   ```sh
+   yarn db-seed
+   ```
+
+3. Start the app
 
    ```sh
    yarn start
@@ -79,7 +178,6 @@ yarn
    - This will start the [frontend-web](http://localhost:4200), [backend](http://localhost:3333/api), and [admin](http://localhost:3334) app in parallel.
 
      - Frontend: <http://localhost:4200>
-     - Mobile <http://localhost:8081> (note you )
      - Backend: <http://localhost:3333/api>
      - Admin: <http://localhost:3334>
 
@@ -105,80 +203,73 @@ yarn
    yarn frontend:start:mobile:ios
    ```
 
-3. Creating/updating/deleting data
+4. Creating/updating/deleting data
 
-   - either open the [admin](http://localhost:3334) app,
+   - open the [admin](http://localhost:3334) app,
    - or run the following curl command in your shell to seed a sample restaurant entry:
 
+If you'd like, you can also create entries with curl commants like these:
+
+Note that the controller is not doing validation on this data structure, so I would recommend using the admin panel Aalso there I have not implemented validation, but at least it is straight-forward to use.
+
 ```sh
+curl --location --request POST  'http://localhost:3333/api/restaurants' \
+--header 'Content-Type: application/json' \
+--data-raw '{"name": "Sushi", "city": "New York", "country": "USA", "openingHours": {"monday":[],"tuesday":[{"type":"open","value":36000},{"type":"close","value":64800}],"wednesday":[],"thursday":[{"type":"open","value":36000},{"type":"close","value":64800}],"friday":[{"type":"open","value":64800}],"saturday":[],"sunday":[{"type":"close","value":3600},{"type":"open","value":20000},{"type":"close","value":75600}]} }'
+
+
 curl --location --request POST 'http://localhost:3333/api/restaurants' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "name": "Pizza Store",
-  "city": "Berlin",
-  "country": "Germamy",
+  "name": "Sushi",
+  "city": "New York",
+  "country": "USA",
   "openingHours": {
-      "monday": [],
-      "tuesday": [
-          {
-              "type": "open",
-              "value": 36000
-          },
-          {
-              "type": "close",
-              "value": 64800
-          }
-      ],
-      "wednesday": [],
-      "thursday": [
-          {
-              "type": "open",
-              "value": 36000
-          },
-          {
-              "type": "close",
-              "value": 64800
-          }
-      ],
-      "friday": [
-          {
-              "type": "open",
-              "value": 36000
-          }
-      ],
-      "saturday": [
-          {
-              "type": "close",
-              "value": 3600
-          },
-          {
-              "type": "open",
-              "value": 36000
-          }
-      ],
-      "sunday": [
-          {
-              "type": "close",
-              "value": 3600
-          },
-          {
-              "type": "open",
-              "value": 43333
-          },
-          {
-              "type": "close",
-              "value": 75600
-          }
-      ]
+    "monday":[],
+    "tuesday":[
+      {
+        "type":"open",
+        "value":36000
+      },
+      {
+        "type":"close",
+        "value":64800
+      }
+    ],
+    "wednesday":[],
+    "thursday":[
+      {
+        "type":"open",
+        "value":36000
+      },
+      {
+        "type":"close",
+        "value":64800
+      }
+    ],
+    "friday":[
+      {
+        "type":"open",
+        "value":64800
+      }
+    ],
+    "saturday":[],
+    "sunday": [
+      {"type":"close","value":3600},
+      {"type":"open","value":20000},
+      {"type":"close","value":75600}
+    ]
   }
 }'
+
 ```
 
 ### Start only the default frontend web-app
 
 ```sh
 # start dev server in frontend
-yarn web
+# select Web-App (frontend) from the menu
+yarn start
 ```
 
 - Navigate to <http://localhost:4200>.
@@ -186,16 +277,20 @@ yarn web
 
 ### Start only the default frontend mobile app
 
+Note: this has not been developed yet. Only scaffolded.
+
 ```sh
 # start dev server
-yarn mobile
+# select Mobile (frontend) - NOT READY
+yarn start
+
 # once server is running, start either an Android or iOS emulator in another terminal
 
-# android
-yarn android
+# ios emulator
+yarn runners:frontend:start:mobile:ios
 
-# ios
-yarn ios
+# android emulator
+yarn runners:frontend:start:mobile:mobile
 ```
 
 - App should appear in the iOS or Android emulator
@@ -209,18 +304,20 @@ yarn ios
 
 ```sh
 # start dev server in Storybook
-yarn web-ui
+
+# select first option from this menu
+yarn start:libs
 ```
 
 - Navigate to http://localhost:4400/. You will be in the [Storybook](https://storybook.js.org/) UI.
 - Storybook will automatically reload if you change any of the source files.
 
-Note: converting this into installable packages is easy to do in `nx`.
+Note: converting this into publishable packages is easy to do in `nx`.
 
 ### Make a build
 
-- Run `yarn build` for a development build
-- Run `yarn build --prod` for a production build
+- Run `yarn runners:build:dev` for a development build
+- Run `yarn runners:build:prod` for a production build
 
 #### Note on builds
 
@@ -233,7 +330,7 @@ Note: converting this into installable packages is easy to do in `nx`.
 
 ```sh
 # executes all unit tests.
-yarn test
+yarn npm run runners:test:unit
 ```
 
 ```sh
@@ -252,7 +349,7 @@ yarn e2e
 
 ```sh
 # execute the e2e tests affected by a change (good for development and CI)
-yarn affected:e2e
+yarn test
 ```
 
 ## View repo dependency graph

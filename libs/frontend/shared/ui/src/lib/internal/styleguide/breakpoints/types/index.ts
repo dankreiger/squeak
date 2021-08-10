@@ -1,1 +1,2 @@
-export * from './breakpoints.types';
+export * from './TBreakpointDict';
+export * from './TMediaQueryFn';

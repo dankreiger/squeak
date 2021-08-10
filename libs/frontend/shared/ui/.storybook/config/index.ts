@@ -1,3 +1,3 @@
-export * from './internal/decorators';
-export * from './internal/global-types';
-export * from './internal/parameters';
+export * from './decorators.frontend.shared.ui';
+export * from './parameters.frontend.shared.ui';
+export * from './sb-globals.frontend.shared.ui';

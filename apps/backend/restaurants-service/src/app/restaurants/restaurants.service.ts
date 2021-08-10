@@ -1,10 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { FIXTURES } from '@squeak-shared.fixtures';
+import { entries } from '@squeak-shared.utils';
 import { Repository } from 'typeorm';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { Restaurant } from './entities/restaurant.entity';
-
 @Injectable()
 export class RestaurantsService {
   constructor(
@@ -48,5 +49,32 @@ export class RestaurantsService {
   async remove(id: string) {
     const restaurant = await this.restaurantsRepository.findOne(id);
     return this.restaurantsRepository.remove(restaurant);
+  }
+
+  // testing purposes only
+  async nuke() {
+    const restaurants = await this.restaurantsRepository.find();
+    return restaurants.forEach(async (r) => {
+      await this.restaurantsRepository.remove(r);
+    });
+  }
+
+  // testing purposes only
+  async seedDummyData() {
+    return entries(FIXTURES({ disableWarning: true }).OPENING_HOURS).forEach(
+      ([fixtureType, fixtureValue]) => {
+        entries(fixtureValue).forEach(([fixtureKey, openingHours], i) => {
+          const name = `${fixtureType}-${fixtureKey}`;
+          console.log(`seeding item ${i + 1}: ${name}`);
+
+          this.restaurantsRepository.save({
+            name,
+            city: 'London',
+            country: 'England',
+            openingHours,
+          });
+        });
+      }
+    );
   }
 }

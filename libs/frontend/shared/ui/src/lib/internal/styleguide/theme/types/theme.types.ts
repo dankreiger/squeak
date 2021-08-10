@@ -1,4 +1,4 @@
+import { DefaultTheme } from 'styled-components';
 import { EThemeMode } from '../enums';
-import { ITheme } from '../interfaces';
 
-export type TAllThemes = Record<EThemeMode, ITheme>;
+export type TAllThemes = Record<EThemeMode, DefaultTheme>;

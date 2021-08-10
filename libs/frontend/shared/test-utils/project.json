@@ -1,0 +1,22 @@
+{
+  "root": "libs/frontend/shared/test-utils",
+  "sourceRoot": "libs/frontend/shared/test-utils/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/frontend/shared/test-utils/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/frontend/shared/test-utils"],
+      "options": {
+        "jestConfig": "libs/frontend/shared/test-utils/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,38 +1,26 @@
-import { createGlobalStyle, css } from 'styled-components';
-import { EBreakpoint } from '../../breakpoints/enums';
-import { EHeadingTag, ETextTag } from '../../typography';
-import { ITheme } from '../interfaces';
+import { createGlobalStyle } from 'styled-components';
 
-const tags = [...Object.values(EHeadingTag), ...Object.values(ETextTag)];
-const breakpoints = Object.values(EBreakpoint);
-export const ThemeGlobalSt = createGlobalStyle<{ theme: ITheme }>`
+export const ThemeGlobalSt = createGlobalStyle<{ theme: Record<string, any> }>`
   * {
     box-sizing: border-box;
-  }
-  html, body, .docs-story {
-    font-family: ${({ theme }) => theme.typography.fontFamily.body};
-    line-height: ${({ theme }) => theme.typography.lineHeight.body};
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.primary};
-  }
-  ${tags.join(', ')} {
     margin: 0;
   }
-  ${({ theme }) =>
-    breakpoints.map(
-      (bk) => css`
-        @media (min-width: ${theme.breakpointsMap[bk]}px) {
-          ${tags.map(
-            (tag) =>
-              css`
-                ${tag} {
-                  ${theme.typography.styles[tag][bk]}
-                }
-              `
-          )}
-        }
-      `
-    )}
+  html, body {
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
+  }
 
+  ${({ theme }) => theme.typography};
 
+  button {
+    transition: filter 300ms;
+
+    &:hover {
+      filter: brightness(110%);
+    }
+
+    &:active {
+      filter: brightness(120%);
+    }
+  }
 `;

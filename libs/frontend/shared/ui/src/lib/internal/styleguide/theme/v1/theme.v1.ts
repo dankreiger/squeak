@@ -1,13 +1,10 @@
-import { breakpointsMapV1, breakpointsV1 } from '../../breakpoints';
+import { DefaultTheme } from 'styled-components';
 import { colorsV1 } from '../../colors';
 import { typographyV1 } from '../../typography';
 import { EThemeMode } from '../enums';
-import { ITheme } from '../interfaces';
 
-export const themeV1: ITheme = {
+export const themeV1: DefaultTheme = {
   mode: EThemeMode.V1,
   colors: colorsV1,
-  breakpoints: breakpointsV1,
-  breakpointsMap: breakpointsMapV1,
   typography: typographyV1,
 };

@@ -1,4 +1,4 @@
-import type { TOpeningHours } from '@squeak-backend/restaurants-service.types';
+import type { TOpeningHours } from '@squeak-shared.types';
 import { IsObject, IsString } from 'class-validator';
 
 export class CreateRestaurantDto {

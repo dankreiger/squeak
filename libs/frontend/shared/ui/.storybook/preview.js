@@ -1,1 +1,1 @@
-export { decorators, globalTypes, parameters } from './config';
+export { decorators, sbGlobals as globalTypes, parameters } from './config';

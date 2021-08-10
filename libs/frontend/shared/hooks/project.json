@@ -1,0 +1,22 @@
+{
+  "root": "libs/frontend/shared/hooks",
+  "sourceRoot": "libs/frontend/shared/hooks/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/frontend/shared/hooks/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/frontend/shared/hooks"],
+      "options": {
+        "jestConfig": "libs/frontend/shared/hooks/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

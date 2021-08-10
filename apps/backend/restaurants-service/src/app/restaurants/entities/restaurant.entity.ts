@@ -1,4 +1,4 @@
-import type { TOpeningHours } from '@squeak-backend/restaurants-service.types';
+import type { TOpeningHours } from '@squeak-shared.types';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

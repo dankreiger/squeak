@@ -1,4 +1,4 @@
-import { EBreakpoint } from '../../breakpoints';
+import { EBreakpoint } from '../../breakpoints/enums';
 import { EHeadingTag, ETextTag } from '../enums';
 export interface ITypography {
   fontSizes: number[];

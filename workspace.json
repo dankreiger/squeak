@@ -3,21 +3,27 @@
   "projects": {
     "backend-restaurants-service": "apps/backend/restaurants-service",
     "backend-restaurants-service-admin": "apps/backend/restaurants-service-admin",
-    "backend-restaurants-service-admin-interfaces": "libs/backend/restaurants-service-admin/interfaces",
     "backend-restaurants-service-admin-types": "libs/backend/restaurants-service-admin/types",
-    "backend-restaurants-service-enums": "libs/backend/restaurants-service/enums",
     "backend-restaurants-service-interfaces": "libs/backend/restaurants-service/interfaces",
-    "backend-restaurants-service-types": "libs/backend/restaurants-service/types",
     "backend-restaurants-service-utils": "libs/backend/restaurants-service/utils",
     "frontend-mobile": "apps/frontend/mobile",
     "frontend-mobile-e2e": "apps/frontend/mobile-e2e",
     "frontend-mobile-i18n": "libs/frontend/mobile/i18n",
+    "frontend-shared-hooks": "libs/frontend/shared/hooks",
     "frontend-shared-i18n": "libs/frontend/shared/i18n",
+    "frontend-shared-test-utils": "libs/frontend/shared/test-utils",
+    "frontend-shared-types": "libs/frontend/shared/types",
     "frontend-shared-ui": "libs/frontend/shared/ui",
     "frontend-shared-ui-e2e": "apps/frontend-shared-ui-e2e",
+    "frontend-shared-utils": "libs/frontend/shared/utils",
     "frontend-web": "apps/frontend/web",
     "frontend-web-e2e": "apps/frontend/web-e2e",
-    "frontend-web-i18n": "libs/frontend/web/i18n"
+    "frontend-web-i18n": "libs/frontend/web/i18n",
+    "shared-constants": "libs/shared/constants",
+    "shared-enums": "libs/shared/enums",
+    "shared-fixtures": "libs/shared/fixtures",
+    "shared-types": "libs/shared/types",
+    "shared-utils": "libs/shared/utils"
   },
   "cli": {
     "defaultCollection": "@nrwl/nest"

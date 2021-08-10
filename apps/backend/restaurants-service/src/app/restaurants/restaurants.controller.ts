@@ -12,9 +12,7 @@ import {
 import { Response as Res } from 'express';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
-
 import { RestaurantsService } from './restaurants.service';
-
 @Controller('restaurants')
 export class RestaurantsController {
   constructor(private readonly restaurantService: RestaurantsService) {}
@@ -36,6 +34,12 @@ export class RestaurantsController {
     return this.restaurantService.create(createRestaurantDto);
   }
 
+  // testing action for seeding dummy data
+  @Post('/seed')
+  seed() {
+    return this.restaurantService.seedDummyData();
+  }
+
   @Put(':id')
   update(
     @Param('id') id: string,
@@ -47,5 +51,11 @@ export class RestaurantsController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.restaurantService.remove(id);
+  }
+
+  // testing action for removing all data
+  @Post('nuke')
+  nuke() {
+    return this.restaurantService.nuke();
   }
 }

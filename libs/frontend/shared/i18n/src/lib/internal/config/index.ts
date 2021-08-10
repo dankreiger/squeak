@@ -1,1 +1,1 @@
-export * from './config.i18n';
+export * from './config.frontend.shared.i18n';

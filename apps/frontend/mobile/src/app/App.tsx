@@ -1,7 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { i18n, lngs } from '@squeak-frontend/shared.i18n';
+import { i18n } from '@squeak-frontend/shared.i18n';
 import { ALL_THEMES } from '@squeak-frontend/shared.ui';
+import { LANG_LIST } from '@squeak-shared.constants';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -14,7 +15,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-// @ts-ignore
 import openURLInBrowser from 'react-native/Libraries/Core/Devtools/openURLInBrowser';
 import {
   DebugInstructions,
@@ -33,10 +33,9 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.header}>
         <Image style={styles.logo} source={require('./logo.png')} />
         <Text style={styles.heading} testID="heading">
-          {t('footer.date', { date: new Date() })}
-          {/* {JSON.stringify(state)} */}
+          {t('web.footer.date', { date: new Date() })}
           <View>
-            {Object.keys(lngs).map((lng: string) => (
+            {LANG_LIST.map((lng: string) => (
               <Button
                 key={lng}
                 title={lng}

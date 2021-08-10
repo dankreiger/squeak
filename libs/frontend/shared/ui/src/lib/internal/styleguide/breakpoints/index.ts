@@ -1,4 +1,4 @@
-export * from './v0';
-export * from './v1';
-export * from './v2';
+export * from './breakpoints-map';
+export * from './enums';
+export * from './media-query';
 export * from './types';

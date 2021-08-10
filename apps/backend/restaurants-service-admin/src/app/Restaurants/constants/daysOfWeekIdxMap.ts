@@ -1,4 +1,4 @@
-import { EDayOfWeek } from '@squeak-backend/restaurants-service.enums';
+import { EDayOfWeek } from '@squeak-shared.enums';
 import { daysOfWeek } from './daysOfWeek';
 
 export const daysOfWeekIdxMap = daysOfWeek.reduce((acc, cur, idx) => {

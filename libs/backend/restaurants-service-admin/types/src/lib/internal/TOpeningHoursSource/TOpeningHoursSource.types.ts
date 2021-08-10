@@ -1,4 +1,4 @@
-import { EDayOfWeek } from '@squeak-backend/restaurants-service.enums';
+import { EDayOfWeek } from '@squeak-shared.enums';
 
 export type TOpeningHoursSource<T extends string> =
   `openingHours[${number}][${EDayOfWeek}].${T}`;

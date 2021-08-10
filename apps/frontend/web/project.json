@@ -9,8 +9,8 @@
       "options": {
         "outputPath": "dist/apps/frontend/web",
         "index": "apps/frontend/web/src/index.html",
-        "main": "apps/frontend/web/src/main.tsx",
-        "polyfills": "apps/frontend/web/src/polyfills.ts",
+        "main": "apps/frontend/web/src/main.frontend.web.tsx",
+        "polyfills": "apps/frontend/web/src/polyfills.frontend.web.ts",
         "tsConfig": "apps/frontend/web/tsconfig.app.json",
         "assets": [
           "apps/frontend/web/src/favicon.ico",
@@ -49,6 +49,7 @@
       "executor": "@nrwl/web:dev-server",
       "options": {
         "buildTarget": "frontend-web:build",
+        "proxyConfig": "apps/frontend/web/proxy.conf.json",
         "hmr": true
       },
       "configurations": {
