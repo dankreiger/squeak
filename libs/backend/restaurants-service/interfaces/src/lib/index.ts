@@ -1,2 +1,1 @@
-export * from './IRestaurantsServiceEnvironment';
-export * from './IOpeningHoursData';
+export * from './internal';

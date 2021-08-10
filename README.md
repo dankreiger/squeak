@@ -76,14 +76,24 @@ yarn
    yarn start
    ```
 
-   - This will start the [frontend-web](http://localhost:4200), [frontend-mobile](http://localhost:8081), [backend](http://localhost:3333/api), and [admin](http://localhost:3334) app in parallel.
+   - This will start the [frontend-web](http://localhost:4200), [backend](http://localhost:3333/api), and [admin](http://localhost:3334) app in parallel.
 
      - Frontend: <http://localhost:4200>
      - Mobile <http://localhost:8081> (note you )
      - Backend: <http://localhost:3333/api>
      - Admin: <http://localhost:3334>
 
-   - Note for the mobile app you will need to start an ios or android emulator in addition to the metro server.
+   - For the mobile app, it is best to start a dev server separately. It will consume data from the backend, so you should do it after running `yarn start`.
+
+   To start the mobile app:
+
+   ```sh
+   # start react-native metro server
+   yarn mobile
+   ```
+
+   - [frontend-mobile](http://localhost:8081) should start a metro server on <http://localhost:8081>
+     you will need to start an ios or android emulator in addition to the metro server.
 
    ```sh
    # start android emulator
@@ -192,7 +202,7 @@ yarn ios
 
 - Note:
 
-- If the iOS build fails, try running it again.
+- If the iOS build fails, try running one more time (often it works the second time)
 - If that does not work, try `yarn nx run-ios frontend-mobile` first if the build fails.
 
 ### Start frontend UI library app (default ui library)

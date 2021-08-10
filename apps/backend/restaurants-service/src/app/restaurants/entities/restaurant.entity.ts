@@ -1,5 +1,5 @@
+import type { TOpeningHours } from '@squeak-backend/restaurants-service.types';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import type { TOpeningHours } from '@leckerli-backend/restaurants-service.types';
 
 @Entity()
 export class Restaurant {

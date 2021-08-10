@@ -1,1 +1,1 @@
-export * from './TOpeningHours';
+export * from './internal';

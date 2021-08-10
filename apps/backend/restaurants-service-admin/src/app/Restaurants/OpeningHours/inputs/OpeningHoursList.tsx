@@ -1,11 +1,11 @@
+import type { TOpeningHoursSource } from '@squeak-backend/restaurants-service-admin.types';
+import { EDayOfWeek } from '@squeak-backend/restaurants-service.enums';
 import {
   ArrayInput,
   FormDataConsumer,
   SimpleFormIterator,
   useNotify,
 } from 'react-admin';
-import { EDayOfWeek } from '../../types/enums';
-import { TOpeningHoursSource } from '../../types/types';
 import {
   getInvalidOpeningTimesNotification,
   getSourceGetterNotAFunction,

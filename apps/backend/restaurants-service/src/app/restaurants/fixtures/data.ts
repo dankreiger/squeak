@@ -1,7 +1,7 @@
 import {
   EDayOfWeek,
   EOpeningHoursDataType,
-} from '@leckerli-backend/restaurants-service.enums';
+} from '@squeak-backend/restaurants-service.enums';
 import { Restaurant } from '../entities/restaurant.entity';
 
 const openingHours = {

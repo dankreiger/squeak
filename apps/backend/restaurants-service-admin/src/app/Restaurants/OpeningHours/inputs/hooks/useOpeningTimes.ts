@@ -1,8 +1,7 @@
+import type { TOpeningHoursSource } from '@squeak-backend/restaurants-service-admin.types';
 import { useCallback, useState } from 'react';
 import { useInput } from 'react-admin';
-import { TOpeningHoursSource } from '../../../types/types';
 import { timeFns } from '../../../utils/timeFns';
-
 export const useOpeningTimes = ({
   valueSource,
 }: {

@@ -1,0 +1,77 @@
+{
+  "root": "apps/frontend/web",
+  "sourceRoot": "apps/frontend/web/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/frontend/web",
+        "index": "apps/frontend/web/src/index.html",
+        "main": "apps/frontend/web/src/main.tsx",
+        "polyfills": "apps/frontend/web/src/polyfills.ts",
+        "tsConfig": "apps/frontend/web/tsconfig.app.json",
+        "assets": [
+          "apps/frontend/web/src/favicon.ico",
+          "apps/frontend/web/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/frontend/web/src/environments/environment.ts",
+              "with": "apps/frontend/web/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "frontend-web:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "frontend-web:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/frontend/web/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/frontend/web"],
+      "options": {
+        "jestConfig": "apps/frontend/web/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

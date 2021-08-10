@@ -1,5 +1,5 @@
-import type { IRestaurantsServiceEnvironment } from '@leckerli-backend/restaurants-service.interfaces';
-import { getProcessEnvVars } from '@leckerli-backend/restaurants-service.utils';
+import type { IRestaurantsServiceEnvironment } from '@squeak-backend/restaurants-service.interfaces';
+import { getProcessEnvVars } from '@squeak-backend/restaurants-service.utils';
 import { typeOrmModuleOptions } from '../config/typeorm';
 
 const env = process.env.NODE_ENV || 'development';

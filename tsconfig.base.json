@@ -15,19 +15,33 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@leckerli-backend/restaurants-service.enums": [
+      "@squeak-backend/restaurants-service-admin.interfaces": [
+        "libs/backend/restaurants-service-admin/interfaces/src/index.ts"
+      ],
+      "@squeak-backend/restaurants-service-admin.types": [
+        "libs/backend/restaurants-service-admin/types/src/index.ts"
+      ],
+      "@squeak-backend/restaurants-service.enums": [
         "libs/backend/restaurants-service/enums/src/index.ts"
       ],
-      "@leckerli-backend/restaurants-service.interfaces": [
+      "@squeak-backend/restaurants-service.interfaces": [
         "libs/backend/restaurants-service/interfaces/src/index.ts"
       ],
-      "@leckerli-backend/restaurants-service.types": [
+      "@squeak-backend/restaurants-service.types": [
         "libs/backend/restaurants-service/types/src/index.ts"
       ],
-      "@leckerli-backend/restaurants-service.utils": [
+      "@squeak-backend/restaurants-service.utils": [
         "libs/backend/restaurants-service/utils/src/index.ts"
       ],
-      "@leckerli-frontend/web.ui": ["libs/frontend/web/ui/src/index.ts"]
+      "@squeak-frontend/mobile.i18n": [
+        "libs/frontend/mobile/i18n/src/index.ts"
+      ],
+      "@squeak-frontend/shared.i18n": [
+        "libs/frontend/shared/i18n/src/index.ts"
+      ],
+      "@squeak-frontend/shared.ui": ["libs/frontend/shared/ui/src/index.ts"],
+      "@squeak-frontend/web.i18n": ["libs/frontend/web/i18n/src/index.ts"],
+      "@squeak-frontend/web.ui": ["libs/frontend/web/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -6,6 +6,18 @@
     "react-native": "*",
     "react": "*",
     "@testing-library/react-native": "*",
-    "@testing-library/jest-native": "*"
+    "@testing-library/jest-native": "*",
+    "i18next": "*",
+    "luxon": "*",
+    "react-i18next": "*",
+    "styled-components": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-screens": "*",
+    "react-native-gesture": "*",
+    "react-native-safe-area-context": "*",
+    "i18next-react-native-language-detector": "*",
+    "@testing-library/react": "*",
+    "i18next-browser-languagedetector": "*"
   }
 }

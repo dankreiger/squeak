@@ -5,9 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/web:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/backend/restaurants-service-admin",
         "index": "apps/backend/restaurants-service-admin/src/index.html",
@@ -18,9 +16,7 @@
           "apps/backend/restaurants-service-admin/src/favicon.ico",
           "apps/backend/restaurants-service-admin/src/assets"
         ],
-        "styles": [
-          "apps/backend/restaurants-service-admin/src/styles.css"
-        ],
+        "styles": ["apps/backend/restaurants-service-admin/src/styles.css"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -74,9 +70,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/backend/restaurants-service-admin"
-      ],
+      "outputs": ["coverage/apps/backend/restaurants-service-admin"],
       "options": {
         "jestConfig": "apps/backend/restaurants-service-admin/jest.config.js",
         "passWithNoTests": true

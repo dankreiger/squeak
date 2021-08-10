@@ -1,5 +1,5 @@
-import { getProcessEnvVars } from '@leckerli-backend/restaurants-service.utils';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { getProcessEnvVars } from '@squeak-backend/restaurants-service.utils';
 
 const env = process.env.NODE_ENV || 'development';
 const processEnv = getProcessEnvVars(env);

@@ -1,14 +1,14 @@
+import DateFnsUtils from '@date-io/date-fns';
 import {
   KeyboardTimePicker,
   MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
+import { TOpeningHoursSource } from '@squeak-backend/restaurants-service-admin.types';
+import { useMemo } from 'react';
 import { RadioButtonGroupInput, useInput } from 'react-admin';
-import DateFnsUtils from '@date-io/date-fns';
-import { useOpeningTimes } from './hooks/useOpeningTimes';
-import { TOpeningHoursSource } from '../../types/types';
 import { openingHoursTypeChoices } from '../../constants/openingHoursTypeChoices';
 import { timeFns } from '../../utils/timeFns';
-import { useMemo } from 'react';
+import { useOpeningTimes } from './hooks/useOpeningTimes';
 
 export const OpeningHoursInput = ({
   valueSource,

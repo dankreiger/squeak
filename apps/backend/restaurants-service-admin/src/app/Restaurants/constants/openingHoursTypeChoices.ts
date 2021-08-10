@@ -1,4 +1,4 @@
-import { EOpeningHoursDataType } from '../types/enums';
+import { EOpeningHoursDataType } from '@squeak-backend/restaurants-service.enums';
 
 export const openingHoursTypeChoices = [
   {

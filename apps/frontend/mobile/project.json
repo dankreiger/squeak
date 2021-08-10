@@ -21,9 +21,7 @@
     },
     "bundle-ios": {
       "executor": "@nrwl/react-native:bundle",
-      "outputs": [
-        "apps/frontend/mobile/build"
-      ],
+      "outputs": ["apps/frontend/mobile/build"],
       "options": {
         "entryFile": "apps/frontend/mobile/src/main.tsx",
         "platform": "ios",
@@ -61,20 +59,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/frontend/mobile/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["apps/frontend/mobile/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/frontend/mobile"
-      ],
+      "outputs": ["coverage/apps/frontend/mobile"],
       "options": {
         "jestConfig": "apps/frontend/mobile/jest.config.js",
         "passWithNoTests": true
       }
     }
-  }
+  },
+  "tags": []
 }

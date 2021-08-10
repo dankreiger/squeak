@@ -18,7 +18,8 @@
           "build",
           "lint",
           "test",
-          "e2e"
+          "e2e",
+          "build-storybook"
         ]
       }
     }
@@ -35,11 +36,9 @@
     "frontend-mobile": {
       "tags": []
     },
-    "frontend/mobile-e2e": {
+    "frontend-mobile-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "frontend-mobile"
-      ]
+      "implicitDependencies": ["frontend-mobile"]
     }
   }
 }

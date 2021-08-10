@@ -1,5 +1,5 @@
+import type { TOpeningHours } from '@squeak-backend/restaurants-service.types';
 import { IsObject, IsString } from 'class-validator';
-import type { TOpeningHours } from '@leckerli-backend/restaurants-service.types';
 
 export class CreateRestaurantDto {
   @IsString()
