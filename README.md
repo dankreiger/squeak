@@ -4,6 +4,11 @@
 
 A possible monorepo setup, with data managed by `react-admin`
 
+
+## Purpose
+
+A demo reference for future uses of `nx and/or `react-admin`.
+
 ## Notes
 
 Key necessary improvements
@@ -20,7 +25,7 @@ Key necessary improvements
 
 ---
 
-## Quick Start 
+## Quick Start
 
 If you have any issues, please quickly check the [Prerequisites](#prerequisites).
 
