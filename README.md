@@ -1,10 +1,10 @@
 # Squeak 🐶
 
+## Full stack react-admin demo
+
+A possible monorepo setup, with data managed by `react-admin`
+
 ## Notes
-
-There are a lot of things that I would like to finish and change.
-
-I apologize in advance, but there are many tests missing. However, you will see they are setup, and the most critical functionality is unit tested (opening times utilities).
 
 Key necessary improvements
 
