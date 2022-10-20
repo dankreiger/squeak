@@ -7,7 +7,7 @@ A possible monorepo setup, with data managed by `react-admin`
 
 ## Purpose
 
-A demo reference for future uses of `nx and/or `react-admin`.
+A demo reference for future uses of `nx` and/or `react-admin`.
 
 ## Notes
 
