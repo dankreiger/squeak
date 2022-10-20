@@ -4,6 +4,11 @@
 
 A possible monorepo setup, with data managed by `react-admin`
 
+
+## Purpose
+
+A demo reference for future uses of `nx and/or `react-admin`.
+
 ## Notes
 
 Key necessary improvements
@@ -24,9 +29,7 @@ Key necessary improvements
 
 If you have any issues, please quickly check the [Prerequisites](#prerequisites).
 
-TLDR - the console will prompt you, but you'll need Docker and docker-compose :)
-
-## Backend
+TLDR - the console will prompt you if you have issues. But you'll need `Docker` and `Docker Compose` if you want to run the backend :)
 
 1. open [Docker](https://www.docker.com/)
 2. create `postgres` container and wait for the container to be ready
