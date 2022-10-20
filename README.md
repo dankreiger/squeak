@@ -29,7 +29,7 @@ TLDR - the console will prompt you, but you'll need Docker and docker-compose :)
 ## Backend
 
 1. open [Docker](https://www.docker.com/)
-2. create postgres container and wait for the container to be ready
+2. create `postgres` container and wait for the container to be ready
    ```sh
    yarn db-up
    ```
@@ -42,16 +42,16 @@ TLDR - the console will prompt you, but you'll need Docker and docker-compose :)
    yarn start
    ```
 
-   Note: 
+### Note 
    
-   Right now I would recommend choosing the `Fullstack (web, backend, admin)` option.
-   The prompt will open the following apps:
+After running `yarn start`, I would recommend choosing the `Fullstack (web, backend, admin)` option.
+If your `postgres` container is running, the prompt will open the following apps:
 
-   ```sh
-   Web-app: http://localhost:4200
-   REST Api: http://localhost:3333/api
-   Admin: http://localhost:3334
-   ```
+```sh
+Web-app: http://localhost:4200
+REST Api: http://localhost:3333/api
+Admin: http://localhost:3334
+```
 
 
 ## Install deps
