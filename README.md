@@ -24,6 +24,36 @@ Key necessary improvements
 
 If you have any issues, please quickly check the [Prerequisites](#prerequisites).
 
+TLDR - the console will prompt you, but you'll need Docker and docker-compose :)
+
+## Backend
+
+1. open [Docker](https://www.docker.com/)
+2. create postgres container and wait for the container to be ready
+   ```sh
+   yarn db-up
+   ```
+3. seed database (optional - you can also make data in the admin app)
+   ```sh
+   yarn db-seed
+   ```
+4. start app and follow prompts
+   ```sh
+   yarn start
+   ```
+
+   Note: 
+   
+   Right now I would recommend choosing the `Fullstack (web, backend, admin)` option.
+   The prompt will open the following apps:
+
+   ```sh
+   Web-app: http://localhost:4200
+   REST Api: http://localhost:3333/api
+   Admin: http://localhost:3334
+   ```
+
+
 ## Install deps
 
 ```bash
