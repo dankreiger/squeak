@@ -155,7 +155,7 @@
     "@types/react": "17.0.6",
     "@types/react-dom": "17.0.3",
     "@types/react-is": "17.0.0",
-    "@types/react-native": "0.64.10",
+    "@types/react-native": "0.70.6",
     "@types/react-router-dom": "5.1.7",
     "@types/styled-components": "5.1.12",
     "@types/styled-components-react-native": "5.1.1",

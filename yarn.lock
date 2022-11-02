@@ -4928,10 +4928,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-native@0.64.10":
-  version "0.64.10"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.64.10.tgz#5eb6a72c77ce0f7e6e14b19c61a6bc585975eef5"
-  integrity sha512-3Kb9QM5/WZ6p58yZ7VPbvjvi6Wc/ZkESgJhKso1gKkNuHBe/4WL6586R2JRDiz9Tsxal9lMnbj3fligBVGl8PA==
+"@types/react-native@0.70.6":
+  version "0.70.6"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.70.6.tgz#0d1bc3014111f64f13e0df643aec2ab03f021fdb"
+  integrity sha512-ynQ2jj0km9d7dbnyKqVdQ6Nti7VQ8SLTA/KKkkS5+FnvGyvij2AOo1/xnkBR/jnSNXuzrvGVzw2n0VWfppmfKw==
   dependencies:
     "@types/react" "*"
 
