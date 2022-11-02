@@ -183,7 +183,7 @@
     "jest-react-native": "18.0.0",
     "lint-staged": "11.2.6",
     "metro": "0.73.3",
-    "metro-react-native-babel-preset": "0.66.0",
+    "metro-react-native-babel-preset": "0.73.3",
     "metro-resolver": "0.73.3",
     "prettier": "2.7.1",
     "react-native-codegen": "0.0.7",
