@@ -181,7 +181,7 @@
     "jest": "27.0.6",
     "jest-circus": "27.0.3",
     "jest-react-native": "18.0.0",
-    "lint-staged": "11.1.1",
+    "lint-staged": "11.2.6",
     "metro": "0.73.3",
     "metro-react-native-babel-preset": "0.66.0",
     "metro-resolver": "0.66.0",
