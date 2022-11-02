@@ -4,7 +4,6 @@
 
 A possible monorepo setup, with data managed by `react-admin`
 
-
 ## Purpose
 
 A demo reference for future uses of `nx` and/or `react-admin`.
@@ -36,17 +35,17 @@ TLDR - the console will prompt you if you have issues. But you'll need `Docker` 
    ```sh
    yarn db-up
    ```
-3. seed database (optional - you can also make data in the admin app)
-   ```sh
-   yarn db-seed
-   ```
-4. start app and follow prompts
+3. start app and follow prompts
    ```sh
    yarn start
    ```
+4. seed database (optional - you can also make data in the admin app)
+   ```sh
+   yarn db-seed
+   ```
 
-### Note 
-   
+### Note
+
 After running `yarn start`, I would recommend choosing the `Fullstack (web, backend, admin)` option.
 If your `postgres` container is running, the prompt will open the following apps:
 
@@ -55,7 +54,6 @@ Web-app: http://localhost:4200
 REST Api: http://localhost:3333/api
 Admin: http://localhost:3334
 ```
-
 
 ## Install deps
 
@@ -118,8 +116,11 @@ For a more complete idea of what this repo has to offer, please continue reading
 Table of contents:
 
 - [Squeak 🐶](#squeak-)
+  - [Full stack react-admin demo](#full-stack-react-admin-demo)
+  - [Purpose](#purpose)
   - [Notes](#notes)
   - [Quick Start](#quick-start)
+    - [Note](#note)
   - [Install deps](#install-deps)
   - [Start CLI](#start-cli)
   - [Start Libraries](#start-libraries)
@@ -127,7 +128,7 @@ Table of contents:
   - [Running e2e tests](#running-e2e-tests)
   - [View repo dependency graph](#view-repo-dependency-graph)
   - [Prerequisites](#prerequisites)
-    - [Note](#note)
+    - [Note on node versioning](#note-on-node-versioning)
   - [Getting started](#getting-started)
     - [Install dependencies](#install-dependencies)
     - [Starting the full-stack app](#starting-the-full-stack-app)
@@ -156,7 +157,7 @@ yarn >=1.22.11
 - [docker](https://docs.docker.com/get-started/#download-and-install-docker) (full-stack version only)
 - [docker-compose](https://docs.docker.com/docker-for-mac/install/) (full-stack version only)
 
-### Note
+### Note on node versioning
 
 - The versions aren't enforced via `package.json` engines, but still please try to use the minimum versions
 
