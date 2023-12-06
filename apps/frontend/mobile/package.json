@@ -10,7 +10,7 @@
     "i18next": "22.0.1",
     "luxon": "3.0.4",
     "react-i18next": "12.0.0",
-    "styled-components": "5.3.6",
+    "styled-components": "5.3.11",
     "@react-navigation/native": "6.0.13",
     "@react-navigation/native-stack": "6.9.1",
     "react-native-screens": "3.18.2",
